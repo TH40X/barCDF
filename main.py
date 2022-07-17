@@ -1,6 +1,7 @@
 from flask import Flask, session, request, url_for, redirect, render_template
 import os
 import time
+import unidecode
 
 initTime = time.time()
 
@@ -106,9 +107,10 @@ def saveUserList():
         for id in userList:
             user = userList[id]
             file.write(str(user.num) + "#")
-            file.write(user.name + "#")
+            file.write(unidecode.unidecode(user.name) + "#")
             file.write(str(user.sold) + "#")
             file.write(user.log)
+            file.write("\n")
 
 @app.route("/inscription", methods=["GET"])
 def inscription():
