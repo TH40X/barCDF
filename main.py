@@ -107,7 +107,7 @@ def saveUserList():
         for id in userList:
             user = userList[id]
             file.write(str(user.num) + "#")
-            file.write(unidecode.unidecode(user.name) + "#")
+            file.write(user.name + "#")
             file.write(str(user.sold) + "#")
             file.write(user.log)
             file.write("\n")
