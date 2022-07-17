@@ -94,6 +94,16 @@ def vente():
     else:
         return render_template('login.html')
 
+@app.route("/historique", methods=["GET"])
+def historique():
+    if "username" in session:
+        num = request.args.get("num")
+        user = userList[int(num)]
+        logs = user.log.split("#")
+        return render_template('historique.html', user=user, logs=logs)
+    else:
+        return render_template('login.html')
+
 
 @app.route("/venteValid", methods=["POST"])
 def venteValid():
@@ -112,8 +122,6 @@ def venteValid():
         return render_template('login.html')
 
 def saveUserList():
-    print("ici")
-    print(userList)
     with open("save.txt" + str(int(time.time())), "w") as file:
         for id in userList:
             user = userList[id]

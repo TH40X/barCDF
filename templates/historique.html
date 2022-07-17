@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Gestion {{user.num}}</title>
+    <title>Historique : {{user.num}}</title>
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
 </head>
 <body>
@@ -10,11 +10,10 @@
         <label>Compte n°{{user.num}} : {{user.sold}} €</label>
     </div>
     <div>
-        <a href="encaisser?num={{user.num}}">Encaisser</a>
-        <br>
-        <a href="vente?num={{user.num}}">Vendre</a>
-        <br>
-        <a href="historique?num={{user.num}}">Historique</a>
+        {% for l in logs %}
+            <label>{{l}}</label>
+            <br>
+        {% endfor %}
     </div>
 </body>
 </html>
