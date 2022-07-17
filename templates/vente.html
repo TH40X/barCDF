@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vente : {{user.num}}</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+</head>
+<body>
+    <div>
+        <label>Compte n°{{user.num}} : {{user.sold}} €</label>
+    </div>
+    <div>
+        <form action="venteValid" method="POST">
+            <input type="hidden" name="num" value="{{user.num}}">
+            <table>
+                <tr>
+                    <td style="width:70%"><label>Bière 25 (2€)</label></td>
+                    <td><input type="number" min="0" name="25" style="width: 100%"></td>
+                </tr>
+                <tr>
+                    <td><label>Bière petit (6€)</label></td>
+                    <td><input type="number" min="0" name="Bpetit" style="width: 100%"></td>
+                </tr>
+                <tr>
+                    <td><label>Bière grand (10€)</label></td>
+                    <td><input type="number" min="0" name="Bgrand" style="width: 100%"></td>
+                </tr>
+                <tr>
+                    <td><label>Vin 13 (2€)</label></td>
+                    <td><input type="number" min="0" name="13" style="width: 100%"></td>
+                </tr>
+                <tr>
+                    <td><label>Vin petit (12€)</label></td>
+                    <td><input type="number" min="0" name="Vpetit" style="width: 100%"></td>
+                </tr>
+                <tr>
+                    <td><label>Vin grand (20€)</label></td>
+                    <td><input type="number" min="0" name="Vgrand" style="width: 100%"></td>
+                </tr>
+                <tr>
+                    <td><label>Sodas (1€)</label></td>
+                    <td><input type="number" min="0" name="sodas" style="width: 100%"></td>
+                </tr>
+                <tr>
+                    <td><label>Frites (3€)</label></td>
+                    <td><input type="number" min="0" name="frites" style="width: 100%"></td>
+                </tr>
+                <tr>
+                    <td><label>Café (2€)</label></td>
+                    <td><input type="number" min="0" name="cafe" style="width: 100%"></td>
+                </tr>
+            </table>
+            <input type="submit" value="Valider">
+        </form>
+    </div>
+</body>
+</html>

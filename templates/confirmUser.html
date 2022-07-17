@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmation</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+</head>
+<body>
+    <div>
+        <label style="margin: 10px;">Numéro de compte : {{id}}</label>
+        <form action="login" method="POST">
+            <input type="submit" value="OK">
+        </form>
+    </div>
+</body>
+</html>

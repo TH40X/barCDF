@@ -1,0 +1,64 @@
+<!doctype html>
+
+<script>
+  window.addEventListener('load', preload, false);
+  function preload() {
+    $(document).ready(function () {
+      $('#data').DataTable({
+        "pageLength": 100,
+        "bPaginate": false,
+        "language": {
+          "sProcessing":    "Chargement...",
+          "sLengthMenu":    "Montrer _MENU_ comptes",
+          "sZeroRecords":   "Pas de compte trouvé",
+          "sEmptyTable":    "Pas de comptes disponibles",
+          "sInfo":          "",
+          "sInfoEmpty":     "",
+          "sInfoFiltered":  "",
+          "sInfoPostFix":   "",
+          "sSearch":        "",
+        }
+      });
+    });
+  }
+</script>
+
+<html>
+  <head>
+    <title>Liste des comptes</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+  </head>
+  <body>
+      <div class="container">
+        <div>
+          <a href="inscription">Inscription</a>
+        </div>
+        <table id="data">
+          <thead style="display:none">
+            <tr>
+              <th>N°</th>
+              <th>Nom</th>
+              <th>Solde</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for user in userList %}
+              <tr>
+                <td>
+                  {{userList[user].num}}
+                </td>
+                <td>
+                  <a href="manage?num={{userList[user].num}}">{{userList[user].name}}</a>
+                </td>
+                <td>
+                  {{userList[user].sold}} €
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+  </body>
+</html>

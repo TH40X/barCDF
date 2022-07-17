@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+</head>
+<body>
+    <div>
+        <form action="newUser" method="POST">
+            <div>
+                <input type="text" name="nom" placeholder="Nom">
+            </div>
+            <div>
+                <input type="tel" name="tel" pattern="[0-9]{10}" placeholder="Téléphone">
+            </div>
+            <input type="submit" value="Enregistrer">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion {{user.num}}</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+</head>
+<body>
+    <div>
+        <label>Compte n°{{user.num}} : {{user.sold}} €</label>
+    </div>
+    <div>
+        <a href="encaisser?num={{user.num}}">Encaisser</a>
+        <br>
+        <a href="vente?num={{user.num}}">Vendre</a>
+    </div>
+</body>
+</html>
