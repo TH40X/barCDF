@@ -26,7 +26,7 @@ userList[x] = User("Theo Manfredi", x, "0783694087")
 
 
 def render(name):
-    with open(f"templates/{name}.html", "r") as f:
+    with open("templates/{}.html".format(name), "r") as f:
         return "".join(f)
 
 
@@ -104,7 +104,7 @@ def venteValid():
         for item in bar:
             amount = int("0" + request.form.get(item))
             if amount > 0:
-                user.log += f"# {item} x {amount}"
+                user.log += "# {} x {}".format(item, amount)
                 total += bar[item] * amount
         user.sold -= total
         return render_template('main.html', userList=userList)
