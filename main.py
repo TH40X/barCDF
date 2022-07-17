@@ -32,6 +32,7 @@ def render(name):
 
 @app.route("/")
 def index():
+    print(userList)
     return render_template('main.html', userList=userList)
 
 
@@ -70,7 +71,7 @@ def encaisserValid():
         user.sold += int(value)
     except:
         pass
-    return render_template('main.html', userList=userList)
+    return redirect(url_for('index'))
 
 
 @app.route("/vente", methods=["GET"])
@@ -98,7 +99,7 @@ def venteValid():
             user.log += "# {} x {}".format(item, amount)
             total += bar[item] * amount
     user.sold -= total
-    return render_template('main.html', userList=userList)
+    return redirect(url_for('index'))
 
 def saveUserList():
     with open("save.txt" + str(int(time.time())), "w") as file:
