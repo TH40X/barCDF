@@ -1,11 +1,11 @@
 from flask import Flask, session, request, url_for, redirect, render_template
-import secrets
+import os
 import time
 
 initTime = time.time()
 
 app = Flask(__name__)
-app.secret_key = secrets.token_urlsafe(16)
+app.secret_key = os.urandom(12)
 
 bar = {"25": 2, "Bpetit": 6, "Bgrand": 10, "13": 2, "Vpetit": 12, "Vgrand": 20, "sodas": 1, "frites": 3, "cafe": 2}
 
